@@ -1,3 +1,5 @@
+// src/app/(main)/my-course/aice-sef/aice-sef-courses.ts
+
 import { RESOURCES_URL } from "@/app/utils/MyConstants";
 export  const resources = [
         {
