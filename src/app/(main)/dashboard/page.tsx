@@ -39,7 +39,7 @@ export default function Dashboard() {
         <CardContent className="text-white p-0 w-full">
             <h3 className="text-sm font-semibold">Current Course</h3>
             <div className="flex justify-between items-center">
-            <p className="text-lg font-bold">TypeScript Programming</p>
+            <p className="text-lg font-bold">Software Engineering Foundations</p>
             <p className="text-xs">(Cohort 2)</p>
             </div>
             <Progress value={60} className="mt-2 [&>div]:bg-[#55C7FF]" />

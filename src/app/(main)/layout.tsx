@@ -1,3 +1,5 @@
+// src/app/(main)/layout.tsx
+
 'use client';
 
 import { useState } from "react";
@@ -31,7 +33,7 @@ import profile_white from '@/images/sidebar/profile_white.png'
 import settings_black from '@/images/sidebar/settings_black.png'
 import settings_white from '@/images/sidebar/settings_white.png'
 
-export default function MainLayout({children}: {children: React.ReactNode}){
+export default function MainLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -45,8 +47,8 @@ export default function MainLayout({children}: {children: React.ReactNode}){
         { href: "/profile", label: "Profile", icon: { active: profile_white, inactive: profile_black } },
         { href: "/settings", label: "Settings", icon: { active: settings_white, inactive: settings_black } },
     ];
-    return(
-        <div className="flex h-screen bg-gray-50 relative">
+    return (
+        <div className="flex min-h-screen w-full bg-gray-50">
             {/* Sidebar */}
             <Sidebar
                 navItems={navItems}
@@ -56,19 +58,20 @@ export default function MainLayout({children}: {children: React.ReactNode}){
                 logo={aice_logo}
             />
 
-            {/* Main Content */}
-            <div className="flex-1 flex flex-col overflow-y-auto">
-                {/* Header */}
+            {/* Main content area */}
+            <div className="flex flex-col flex-1 min-h-screen">
+                {/* Header stays fixed and does NOT scroll */}
                 <Header
-                onMenuClick={() => setSidebarOpen(true)}
-                profilePic={profile_pic}
-                name="Ngozi Adeniyi Olagunju"
+                    onMenuClick={() => setSidebarOpen(true)}
+                    profilePic={profile_pic}
+                    name="Ngozi Adeniyi Olagunju"
                 />
 
-                {children}
+                {/* Content scrolls properly */}
+                <div className="flex-1 overflow-y-auto">
+                    {children}
+                </div>
             </div>
-      
-
         </div>
-    )
+    );
 }

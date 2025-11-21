@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from "react";
-import SelectAiceSefWeek from "./SelectAiceSefWeek";
-import RunCodeCheckerPopup from "./RunCodeCheckerPopup";
+import SelectAiceSefWeek from "../../SelectAiceSefWeek";
+import RunCodeCheckerPopup from "../../RunCodeCheckerPopup";
 
-export default function MyCoursePage() {
+export default function AiceSefWeek2() {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: string }>({});
 
   const handleAnswer = (qIndex: number, answer: string) => {
@@ -20,7 +20,7 @@ export default function MyCoursePage() {
       {/* Course Info */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <h1 className="text-lg sm:text-xl font-semibold leading-snug">
-            Software Engineering Foundations - Week 32: Functions, Objects & Interfaces
+            Software Engineering Foundations - Week 2: Functions, Objects & Interfaces
         </h1>
         <div>
           <SelectAiceSefWeek/>

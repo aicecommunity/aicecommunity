@@ -1,0 +1,1 @@
+export const RESOURCES_URL = "https://aice-resources.vercel.app"

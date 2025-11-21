@@ -21,8 +21,8 @@ export default function Header({
 
       {/* Course Info */}
       <div className="flex-1 text-left ml-3 lg:ml-0">
-        <h1 className="text-lg sm:text-xl font-semibold truncate">
-          TypeScript Programming
+        <h1 className="text-lg sm:text-lg font-semibold truncate">
+          Software Engineering Foundations
         </h1>
         <p className="text-xs sm:text-sm text-gray-500">
           Total Score: 88.26%

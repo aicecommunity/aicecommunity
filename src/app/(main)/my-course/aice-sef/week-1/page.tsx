@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from "react";
-import SelectAiceSefWeek from "./SelectAiceSefWeek";
-import RunCodeCheckerPopup from "./RunCodeCheckerPopup";
+import SelectAiceSefWeek from "../../SelectAiceSefWeek";
+import RunCodeCheckerPopup from "../../RunCodeCheckerPopup";
+import Link from "next/link";
 
-export default function MyCoursePage() {
+export default function AiceSefWeek1() {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: string }>({});
 
   const handleAnswer = (qIndex: number, answer: string) => {
@@ -20,7 +21,7 @@ export default function MyCoursePage() {
       {/* Course Info */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <h1 className="text-lg sm:text-xl font-semibold leading-snug">
-            Software Engineering Foundations - Week 32: Functions, Objects & Interfaces
+            Software Engineering Foundations - Week 1: Functions, Objects & Interfaces
         </h1>
         <div>
           <SelectAiceSefWeek/>
@@ -30,40 +31,49 @@ export default function MyCoursePage() {
 
 
       {/* Lesson Card */}
-      <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-200">
+        <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-200">
         <h2 className="font-semibold text-lg mb-2">
-          AiCE-INT-TS-2.1 Typing function parameters and return types
+            AiCE-INT-TS-2.1 Typing function parameters and return types
         </h2>
+
         <p className="text-sm text-gray-600 mb-4">
-          TypeScript helps you write safer and more predictable code by letting you specify the types of data
-          your functions receive and return. This means fewer bugs, better autocomplete, and easier debugging —
-          especially in large projects. You&apos;ll use this skill in nearly every app you build, whether it&apos;s a calculator,
-          a form handler, or an API.
+            TypeScript helps you write safer and more predictable code by letting you specify the types of data your
+            functions receive and return. This improves clarity, reduces bugs, and gives better tooling support.
+            Use these resources to dive deeper into the topic.
         </p>
 
-        <ul className="list-disc list-inside text-sm text-gray-700 mb-4">
-          <li>How to define types for function parameters (e.g. name: string, age: number)</li>
-          <li>How to specify a function&apos;s return type (e.g. : string, : void)</li>
-          <li>The difference between implicit and explicit return types</li>
-          <li>How type checking helps catch common errors before you even run the code</li>
-        </ul>
+        {/* Resource Links */}
+        <div className="space-y-3 mb-6">
+        {[
+            { title: "Introduction to Function Types", href: "/resources/ts-functions/intro" },
+            { title: "Typing Function Parameters", href: "/resources/ts-functions/parameters" },
+            { title: "Understanding Return Types", href: "/resources/ts-functions/returns" },
+            { title: "Implicit vs Explicit Types", href: "/resources/ts-functions/implicit-explicit" },
+            { title: "Common Type Errors and How to Avoid Them", href: "/resources/ts-functions/errors" },
+        ].map((item, i) => (
+            <Link
+            key={i}
+            href={item.href}
+            className="block p-3 rounded-md border border-gray-200 bg-gray-50 hover:bg-[#195C49] hover:text-white transition-colors shadow-sm text-sm font-medium"
+            >
+            {i + 1}. {item.title}
+            </Link>
+        ))}
+        </div>
 
-        <button className="bg-[#195C49] w-[10rem] text-white px-4 py-2 rounded-md mb-4 hover:bg-green-700">
-          Click to read
-        </button>
 
         {/* Video Section */}
         <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-md overflow-hidden">
-        <iframe
+            <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube.com/embed/VIDEO_ID"
             title="YouTube video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-        ></iframe>
+            ></iframe>
         </div>
-      </div>
+        </div>
 
       {/* Quiz Section */}
       <div className="bg-white shadow-sm rounded-lg p-5 border border-gray-200">
