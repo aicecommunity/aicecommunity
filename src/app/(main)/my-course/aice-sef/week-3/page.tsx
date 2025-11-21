@@ -48,7 +48,7 @@ export default function AiceSefWeek1() {
         {resources.map((item, i) => (
             <Link
             key={i}
-            href={item.file}
+            href={`/my-course/aice-sef/${item.name}`}
             className="block p-3 rounded-md border border-gray-200 bg-gray-50 hover:bg-[#195C49] hover:text-white transition-colors shadow-sm text-sm font-medium"
             >
             {i + 1}. {item.name}
