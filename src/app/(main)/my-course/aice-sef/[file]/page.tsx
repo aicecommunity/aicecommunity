@@ -3,17 +3,19 @@
 "use client";
 
 import { use } from "react";
-import ReaderClient from "@/app/(main)/components/common/ReaderClient";
+import dynamic from "next/dynamic";
 import { resources } from "../aice-sef-courses";
 
+const ReaderClient = dynamic(
+  () => import("@/app/(main)/components/common/ReaderClient"),
+  { ssr: false }
+);
+
 export default function Page({ params }: { params: Promise<{ file: string }> }) {
-    // unwrap params
     const { file } = use(params);
 
-    // Decode from URL
     const requestedName = decodeURI(file);
 
-    // Find the resource
     const selected = resources.find(
         (r) => r.name.toLowerCase() === requestedName.toLowerCase()
     );
@@ -32,4 +34,3 @@ export default function Page({ params }: { params: Promise<{ file: string }> }) 
         </div>
     );
 }
-
