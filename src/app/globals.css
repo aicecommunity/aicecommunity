@@ -121,26 +121,17 @@
   }
 }
 
-
-
-/* Remove page container margins */
-.rpv-core__page {
-    margin: 0 !important;
+/* Remove white spaces on left and right */
+.rpv-core__viewer {
+  width: 100% !important;
 }
 
-/* Remove padding on layers */
 .rpv-core__inner-pages,
 .rpv-core__page-layer,
 .rpv-core__canvas-layer,
 .rpv-core__text-layer {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* Ensure the canvas stretches full width */
-.rpv-core__canvas-layer canvas {
-    width: 100% !important;
-    height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 

@@ -1,16 +1,21 @@
 // src/app/(main)/my-course/aice-sef/[file]/page.tsx
 
+"use client";
+
+import { use } from "react";
 import ReaderClient from "@/app/(main)/components/common/ReaderClient";
 import { resources } from "../aice-sef-courses";
 
-export default function Page({ params }: { params: { file: string } }) {
+export default function Page({ params }: { params: Promise<{ file: string }> }) {
+    // unwrap params
+    const { file } = use(params);
 
-    // Decode the file name from the URL
-    const requestedName = decodeURI(params.file);
+    // Decode from URL
+    const requestedName = decodeURI(file);
 
-    // Find the resource by name
+    // Find the resource
     const selected = resources.find(
-        r => r.name.toLowerCase() === requestedName.toLowerCase()
+        (r) => r.name.toLowerCase() === requestedName.toLowerCase()
     );
 
     if (!selected) {
@@ -27,3 +32,4 @@ export default function Page({ params }: { params: { file: string } }) {
         </div>
     );
 }
+
