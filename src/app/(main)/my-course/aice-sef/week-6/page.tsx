@@ -5,7 +5,7 @@ import SelectAiceSefWeek from "../../SelectAiceSefWeek";
 import RunCodeCheckerPopup from "../../RunCodeCheckerPopup";
 import Link from "next/link";
 import { resources } from "../aice-sef-courses";
-import { quiz3Questions } from "../quizQutestions/quiz3Questions";
+import { quiz4Questions } from "../quizQutestions/quiz4Questions";
 import { useEffect } from "react";
 
 export default function AiceSefWeek1() {
@@ -60,7 +60,7 @@ export default function AiceSefWeek1() {
   const handleSubmitQuiz = () => {
     let correct = 0;
 
-    quiz3Questions.forEach(q => {
+    quiz4Questions.forEach(q => {
       if (selectedAnswers[q.id] === q.answer) {
         correct += 1;
       }
@@ -71,7 +71,7 @@ export default function AiceSefWeek1() {
     setSubmitted(true);
 
     // If all answers are correct
-    if (correct === quiz3Questions.length) {
+    if (correct === quiz4Questions.length) {
       setQuizPassed(true);
       setShowQuiz(false); // Collapse automatically
       sendQuizPassedSignal(); // Notify backend
@@ -119,35 +119,38 @@ export default function AiceSefWeek1() {
       <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
         {/* Lesson Title */}
         <h2 className="font-bold md:text-xl text-lg mb-4 text-gray-800">
-          <span className=" text-gray-500 mr-2">AICE-SEF-3:</span>
-          FOUNDATIONS OF SOFTWARE ENGINEERING
+          <span className="text-gray-500 mr-2">AICE-SEF-6:</span>
+          INTERMEDIATE PYTHON — CONTROL FLOW, FUNCTIONS & DATA STRUCTURES
         </h2>
 
         {/* Lesson Overview */}
         <div className="space-y-5 text-gray-700 mb-6">
           <p className="text-base">
-            <strong>Welcome to your journey into the world of software engineering!</strong> 
-            Think of this week as the first step on a path that will take you from understanding simple programs to creating complex software that people around the world use every day. Before you can build software, it’s important to understand what it really is, the different forms it takes, and the role of the people who make it. Software engineers are problem solvers, creators, and thinkers—they take ideas and turn them into working programs, apps, and systems that make life easier and more connected.
+            This week, you will deepen your Python skills by learning how programs make decisions, repeat tasks, organize code, and work with collections of data. These concepts are essential for building real applications.
           </p>
 
           <p className="text-base">
-            To truly understand software, we first need to peek inside the machines it runs on. Computers might seem like magic, but they follow clear rules and structures. You will discover how the CPU, memory, and storage work together to process information, how programs are executed, and how files and folders are organized. You’ll also see how the smallest units of data—bits and bytes—come together to form everything a computer does.
+            You’ll begin by exploring <strong>decision-making</strong> using conditional statements. You will learn how to use <strong>if, elif,</strong> and <strong>else</strong> to control the flow of a program based on different conditions.
           </p>
 
           <p className="text-base">
-            The journey doesn’t stop with a single computer. The internet connects millions of computers around the globe, allowing information to flow instantly. This week, you’ll explore how the internet works, from IP addresses and domain names to the client–server model that makes websites and apps function. You’ll learn the difference between <strong>HTTP</strong> and <strong>HTTPS</strong>, and follow the invisible journey of a simple web request to see what really happens when you click a link or open a website.
+            Next, you will learn how to repeat actions using <strong>loops</strong>. Both <strong>for loops</strong> and <strong>while loops</strong> will be covered, including how to stop or skip iterations using <strong>break</strong> and <strong>continue</strong>. These ideas help automate repetitive tasks.
           </p>
 
           <p className="text-base">
-            But knowledge of machines and networks isn’t enough. Being a software engineer is about <strong>how you think</strong>. This week, you’ll start developing a developer’s mindset: how to approach problems logically, plan solutions using algorithms, flowcharts, and pseudocode, and debug errors when things go wrong. You’ll also learn strategies to teach yourself new skills, practice consistently, and adopt habits that will make you a stronger, more independent learner.
+            You will then learn how to create reusable blocks of code through <strong>functions</strong>. This includes defining functions, working with arguments and return values, understanding variable scope, and using simple <strong>lambda expressions</strong>. You’ll also build small Python mini-projects to practise.
           </p>
 
           <p className="text-base">
-            By the end of this week, you won’t just know what software is—you will begin <strong>thinking like a software engineer</strong>. You will understand how computers and the internet work, and you will have the mindset needed to tackle programming challenges with confidence. This foundation will prepare you for the weeks ahead, where you will start turning theory into practical skills that can change the way you see technology—and the world.
+            Finally, you will work with Python’s most important <strong>data structures</strong> — including <strong>lists, dictionaries, sets, and tuples</strong>. You will also learn how to read and write files, and how to handle errors gracefully using <strong>try/except</strong>.
           </p>
 
           <p className="text-base">
-            To make the most of this week, read each topic in your resources carefully, watch the supporting videos, and take notes. Try to connect what you learn with real-life examples, and challenge yourself with the chapter review quizzes.
+            Throughout the week, you will complete <strong>practical exercises</strong>, <strong>multiple-choice quizzes</strong>, and <strong>theory assignments</strong> to strengthen your understanding and prepare you for real-world Python development.
+          </p>
+
+          <p className="text-base">
+            By the end of this week, you’ll be able to write more complex programs, solve logical problems, reuse code effectively, and manage data efficiently using Python’s built-in tools.
           </p>
         </div>
 
@@ -156,10 +159,10 @@ export default function AiceSefWeek1() {
           <h3 className="font-semibold text-md mb-2 text-gray-800">Resources</h3>
           <div className="space-y-3">
             {resources
-              .filter(item => item.id >= 1 && item.id <= 4)
+              .filter(item => item.id >= 12 && item.id <= 14) // adjust IDs for Week 6
               .map((item, i) => (
                 <Link
-                  key={i}
+                  key={item.id}
                   href={`/my-course/aice-sef/${item.name}`}
                   className="block p-3 rounded-md border border-gray-200 bg-gray-50 hover:bg-[#195C49] hover:text-white transition-colors shadow-sm text-sm font-medium"
                 >
@@ -175,8 +178,8 @@ export default function AiceSefWeek1() {
           <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-md overflow-hidden">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID"
-              title="Software Engineering Introduction"
+              src="https://www.youtube.com/embed/VIDEO_ID" // replace with actual video link
+              title="Intermediate Python"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -184,6 +187,8 @@ export default function AiceSefWeek1() {
           </div>
         </div>
       </div>
+
+
 
 
       {/* Quiz Section */}
@@ -211,7 +216,7 @@ export default function AiceSefWeek1() {
 
             {showQuiz && (
               <>
-                {quiz3Questions.map(q => {
+                {quiz4Questions.map(q => {
                   const isIncorrect =
                     submitted && submittedAnswers[q.id] !== q.answer;
 
@@ -257,7 +262,7 @@ export default function AiceSefWeek1() {
 
                 {score !== null && (
                   <p className="mt-4 font-medium">
-                    You scored {score} out of {quiz3Questions.length}
+                    You scored {score} out of {quiz4Questions.length}
                   </p>
                 )}
               </>

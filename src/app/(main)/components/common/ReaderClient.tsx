@@ -1,3 +1,5 @@
+// src/app/(main)/components/common/ReaderClient.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -34,7 +36,7 @@ export default function ReaderClient({ file }: ReaderClientProps) {
   return (
     <div
       className="w-full bg-gray-50 dark:bg-gray-900"
-      style={{ height }}   // FIXED HEIGHT → prevents Viewer from re-rendering infinitely
+      style={{ height: height - 90 }}   // FIXED HEIGHT → prevents Viewer from re-rendering infinitely
     >
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
         <Viewer

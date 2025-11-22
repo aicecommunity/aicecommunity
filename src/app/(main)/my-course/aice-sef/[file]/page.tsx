@@ -29,7 +29,7 @@ export default function Page({ params }: { params: Promise<{ file: string }> }) 
     }
 
     return (
-        <div className="h-screen w-full">
+        <div className="w-full">
             <ReaderClient file={selected.file} />
         </div>
     );
