@@ -131,7 +131,8 @@
 .rpv-core__canvas-layer,
 .rpv-core__text-layer {
   padding: 0 !important;
-  margin: 0 !important;
+  
+  margin-left: 5 !important;
 }
 
 
